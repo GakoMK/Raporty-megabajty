@@ -1,4 +1,4 @@
-package reports;
+package pl.edu.agh.mwo.reports;
 
 public class ReportEmployeeHours{
 

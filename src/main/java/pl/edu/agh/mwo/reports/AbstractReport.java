@@ -5,10 +5,9 @@
  * @author judyta
  *
  */
-package reports;
+package pl.edu.agh.mwo.reports;
 
 import pl.edu.agh.mwo.Model;
-import java.util.ArrayList;
 
 public abstract class AbstractReport {
 	
