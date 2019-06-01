@@ -1,6 +1,5 @@
 package pl.edu.agh.mwo.test;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pl.edu.agh.mwo.model.Employee;
@@ -22,6 +21,6 @@ public class EmployeeTest {
 
     @Test
     public void createEmployeeAndIssueTest() {
-        Assert.assertTrue(model.getEmployee("Marian Iks"));
+
     }
 }
