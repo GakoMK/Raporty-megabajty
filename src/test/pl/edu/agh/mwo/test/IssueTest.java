@@ -12,7 +12,6 @@ public class IssueTest {
         issue.setDate("11.01.2019");
         issue.setHours(1600);
         issue.setIssueName("Testy");
-        System.out.println(issue.getMonth());
         Assert.assertEquals(1, issue.getMonth());
     }
 

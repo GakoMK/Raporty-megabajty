@@ -1,6 +1,6 @@
 package pl.edu.agh.mwo.test;
 
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
 import pl.edu.agh.mwo.model.Employee;
 import pl.edu.agh.mwo.model.Issue;
@@ -8,19 +8,17 @@ import pl.edu.agh.mwo.model.Model;
 
 public class EmployeeTest {
 
-    private Model model;
-
-    @Before
-    public void setUp() {
-        Employee e1 = new Employee();
-        e1.setName("Marian Iks");
-        Issue i1 = new Issue();
-        e1.setIssues(i1);
-
-    }
-
     @Test
     public void createEmployeeAndIssueTest() {
-
+        Employee employee = new Employee();
+        employee.setName("Jan Kowalski");
+        Issue issue = new Issue();
+        issue.setDate("11.01.2019");
+        issue.setHours(1600);
+        issue.setIssueName("Testy");
+        employee.addIssue(issue);
+        Model model = new Model();
+        model.addEmployeeToArrayList(employee);
+        Assert.assertEquals(employee, model.getEmployee("Jan Kowalski"));
     }
 }
