@@ -4,6 +4,19 @@ public class Issue {
     private String date;
     private int hours;
     private String issueName;
+    private int year = getYear();
+    private int month = getMonth();
+
+    private int getYear() {
+        assert this.date != null;
+        String year = this.date.substring(6, 10);
+        return Integer.parseInt(year);
+    }
+    private int getMonth() {
+        assert this.date != null;
+        String month = this.date.substring(3, 5);
+        return Integer.parseInt(month);
+    }
 
     public String getDate() {
         return date;
