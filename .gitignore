@@ -1,0 +1,13 @@
+.settings/
+.classpath
+.project
+.class
+.logo
+/target/
+.DS_Store
+.idea/
+*.iml
+*.db
+/node_modules/
+.vscode/
+.idea/
