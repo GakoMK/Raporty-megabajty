@@ -3,8 +3,8 @@ package pl.edu.agh.mwo.model;
 import java.util.ArrayList;
 
 public class Model {
-    public ArrayList<Employee> employees = new ArrayList<Employee>();
-    public ArrayList<Project> projects = new ArrayList<Project>();
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
+    private ArrayList<Project> projects = new ArrayList<Project>();
 
     public ArrayList<Employee> getEmployees() {
         return employees;
