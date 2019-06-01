@@ -2,10 +2,8 @@ package pl.edu.agh.mwo;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class App {
@@ -14,7 +12,7 @@ public class App {
 
 		listAllFiles("C:\\Users\\Yogi\\Downloads\\reporter-dane\\reporter-dane");
       
-      String pathToData = args[0];
+        String pathToData = args[0];
 
         boolean isRunning = true;
         Scanner in = new Scanner(System.in);
@@ -77,6 +75,4 @@ public class App {
         }
 		return listFiles;
     }
-	
-}
 }
