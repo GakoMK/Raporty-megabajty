@@ -21,4 +21,5 @@ public class Project {
     public void setIssues(Issue issue) {
         this.issues.add(issue);
     }
+    
 }

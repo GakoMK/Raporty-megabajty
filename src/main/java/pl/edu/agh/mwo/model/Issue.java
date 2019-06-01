@@ -2,8 +2,9 @@ package pl.edu.agh.mwo.model;
 
 public class Issue {
     private String date;
-    private int hours;
+    private double hours;
     private String issueName;
+    private String projectName;
 
     public int getYear() {
         String[] splitted = getDate().split("\\.");
@@ -22,15 +23,27 @@ public class Issue {
         this.date = date;
     }
 
-    public int getHours() {
+    public double getHours() {
         return hours;
     }
 
-    public void setHours(int hours) {
+    public void setHours(double hours) {
         this.hours = hours;
     }
 
-    public String getIssueName() {
+    public String getYear() {
+    	return this.date.substring(7);
+	}
+    
+    public void setProject(String project) {
+    	this.projectName = project;
+    }
+    
+    public String getProject() {
+    	return this.projectName;
+	}
+    
+    public String getName() {
         return issueName;
     }
 

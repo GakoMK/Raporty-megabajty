@@ -1,10 +1,11 @@
 package pl.edu.agh.mwo.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
     private String fullName;
-    private ArrayList issues = new ArrayList<Issue>();
+    private List issues = new ArrayList<Issue>();
 
     public String getName() {
         return fullName;
@@ -14,7 +15,7 @@ public class Employee {
         this.fullName = fullName;
     }
 
-    public ArrayList getIssues() {
+    public List<Issue> getIssues() {
         return issues;
     }
 
@@ -25,4 +26,16 @@ public class Employee {
     public void addIssue(Issue issue) {
         this.issues.add(issue);
     }
+    
+//    public double totalWorkingTime() {
+//    	return issues.stream().mapToDouble(x -> x.getHours()).sum();
+//    }
+    
+//  public double totalWorkingTimeInYear(String year) {
+//		return issues.stream()
+//				.filter(x -> x.getYear().equals(year))
+//				.mapToDouble(x -> x.getHours())
+//				.sum();
+//	}
+    
 }
