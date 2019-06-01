@@ -3,16 +3,8 @@ package pl.edu.agh.mwo.model;
 import java.util.ArrayList;
 
 public class Model {
-    private ArrayList<Employee> employees = new ArrayList<Employee>();
-    private ArrayList<Project> projects = new ArrayList<Project>();
-
-    public ArrayList<Employee> getEmployees() {
-        return employees;
-    }
-
-    public ArrayList<Project> getProjects() {
-        return projects;
-    }
+    public ArrayList<Employee> employees = new ArrayList<Employee>();
+    public ArrayList<Project> projects = new ArrayList<Project>();
 
     public Employee getEmployee(String fullName) {
         for (Employee e : employees) {
@@ -23,7 +15,20 @@ public class Model {
         return null;
     }
 
-    public void addEmployeeToArrayList(Employee employee) {
+    public void addEmployee(Employee employee) {
         this.employees.add(employee);
+    }
+    
+    public Project getProject(String fullName) {
+        for (Project p : projects) {
+            if (p.getName().equals(fullName)) {
+                return p;
+            }
+        }
+        return null;
+    }
+    
+    public void setProject(Project project) {
+    	projects.add(project);
     }
 }
