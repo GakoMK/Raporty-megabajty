@@ -18,7 +18,7 @@ public class Employee {
         return issues;
     }
 
-    public void setIssues(ArrayList issues) {
-        this.issues = issues;
+    public void setIssues(Issue issue) {
+        this.issues.add(issue);
     }
 }
