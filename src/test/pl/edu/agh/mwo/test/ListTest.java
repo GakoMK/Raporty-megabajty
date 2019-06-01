@@ -1,5 +1,6 @@
 package pl.edu.agh.mwo.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import pl.edu.agh.mwo.xlsPars.ListFiles;
 
@@ -8,6 +9,8 @@ public class ListTest {
 
     @Test
     public void listAllFilesTest() {
-        ListFiles.listAllFiles(this.path);
+        ListFiles listFiles = new ListFiles();
+        listFiles.listAllFiles(path);
+        Assert.assertEquals(3, listFiles.getPaths().size());
     }
 }
