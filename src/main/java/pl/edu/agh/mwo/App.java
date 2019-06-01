@@ -3,7 +3,6 @@ package pl.edu.agh.mwo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class App {
@@ -33,5 +32,5 @@ public class App {
         }
 		return listFiles;
     }
-	
+
 }
