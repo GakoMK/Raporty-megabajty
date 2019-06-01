@@ -1,10 +1,17 @@
 package pl.edu.agh.mwo.model;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Model {
-    Collection<Employee> employees;
-    Collection<Project> projects;
+    public static ArrayList<Employee> employees = new ArrayList<Employee>();
+    public static ArrayList<Project> projects = new ArrayList<Project>();
+
+    public String getEmployeeFromCollection(String fullName) {
+        for (Employee e : employees) {
+            if (e.getName().equals(fullName)) {
+                return fullName;
+            }
+        }
+        return null;
+    }
 }

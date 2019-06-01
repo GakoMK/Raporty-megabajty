@@ -3,15 +3,15 @@ package pl.edu.agh.mwo.model;
 import java.util.ArrayList;
 
 public class Employee {
-    private String name;
+    private String fullName;
     private ArrayList issues = new ArrayList<Issue>();
 
     public String getName() {
-        return name;
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
     public ArrayList getIssues() {

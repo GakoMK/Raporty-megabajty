@@ -23,13 +23,14 @@ public class App {
             System.out.print(">>>");
             int input = in.nextInt();
 
-            if (input == 0) {
-                isRunning = false;
-            }
-
             switch (input) {
                 case 1:
                     System.out.println("Raport 1");
+                    System.out.print("Podaj rok: ");
+                    input = in.nextInt();
+                    System.out.println("rok: " + input);
+                    System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
+
                     break;
                 case 2:
                     System.out.println("Raport 2");
@@ -43,6 +44,10 @@ public class App {
                 case 5:
                     System.out.println("Raport 5");
                     break;
+            }
+
+            if (input == 0) {
+                isRunning = false;
             }
         }
     }
