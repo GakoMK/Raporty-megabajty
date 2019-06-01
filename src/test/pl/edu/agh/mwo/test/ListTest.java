@@ -1,0 +1,13 @@
+package pl.edu.agh.mwo.test;
+
+import org.junit.Test;
+import pl.edu.agh.mwo.xlsPars.ListFiles;
+
+public class ListTest {
+    String path = "D:\\Projects\\SAMPLE";
+
+    @Test
+    public void listAllFilesTest() {
+        ListFiles.listAllFiles(this.path);
+    }
+}
