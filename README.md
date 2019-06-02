@@ -30,7 +30,10 @@ W momencie gdy pomimo zatwierdzenia danej czynności, czynność się nie wykonu
 ## Format Pliku wymagany przez Twórców oprogramowania. 
 
 1.	Jeden arkusz kalkulacyjny per pracownik per miesiąc
+
 •	Arkusz powinien być nazwany zgodnie z kluczem **imie_nazwisko **
+
+
 •	Wymagany format pliku **xmls**
 
 2.	Dane w arkuszu powinny być zapisywane zgodnie 
