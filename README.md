@@ -1,7 +1,7 @@
 # Raporty-megabajty
 
 Program ten został stworzony dla pracodawców małych i średnich firm. Służy on do tworzenia raportów z danych dostarczanych przez pracowników firmy w formie podstawowego arkusza kalkulacyjnego xmls.
-Program jest wspierana przez system Windows 64 bit
+System operacyjny Windows 7/10
 
 ## Instrukcja obsługi
 
