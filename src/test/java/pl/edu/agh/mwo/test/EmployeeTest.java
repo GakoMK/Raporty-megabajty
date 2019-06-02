@@ -18,7 +18,7 @@ public class EmployeeTest {
         issue.setIssueName("Testy");
         employee.addIssue(issue);
         Model model = new Model();
-        model.addEmployeeToArrayList(employee);
+        model.addEmployee(employee);
         Assert.assertEquals(employee, model.getEmployee("Jan Kowalski"));
     }
 
@@ -32,7 +32,7 @@ public class EmployeeTest {
         issue.setIssueName("Testy");
         employee.addIssue(issue);
         Model model = new Model();
-        model.addEmployeeToArrayList(employee);
+        model.addEmployee(employee);
         Assert.assertEquals(1, model.getEmployee("Jan Kowalski").getIssues().size());
     }
 }

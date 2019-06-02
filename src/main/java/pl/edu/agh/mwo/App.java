@@ -18,7 +18,7 @@ public class App {
   
       XlsReader xlsReader = new XlsReader();
       xlsReader.getNextFiles(listFilesPath.getPaths());
-      xlsReader.testfunc();
+//      xlsReader.testfunc();
     } catch (FolderNotFoundException e) {
       // e.printStackTrace();
       System.out.println(e);
