@@ -6,15 +6,6 @@ public class Issue {
     private String issueName;
     private String projectName;
 
-    public int getYear() {
-        String[] splitted = getDate().split("\\.");
-        return Integer.parseInt(splitted[2]);
-    }
-    public int getMonth() {
-        String[] splitted = getDate().split("\\.");
-        return Integer.parseInt(splitted[1]);
-    }
-
     public String getDate() {
         return date;
     }
