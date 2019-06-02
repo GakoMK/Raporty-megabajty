@@ -15,9 +15,10 @@ public class App {
 
 
 	String pathToData = args[0];
+    System.out.println(pathToData);
     // do testów
     try {
-      String inputPath = "C:\\Users\\student39\\Desktop\\Raporty-megabajty\\dummyData";
+      String inputPath = pathToData;
       ListFiles listFilesPath = new ListFiles();
       listFilesPath.listAllFiles(inputPath);
       System.out.println("Katalog zostal zeskanowany");
@@ -26,6 +27,7 @@ public class App {
       xlsReader.testfunc();
       System.out.println("Dane zosta�y zaczytane");
     } catch (FolderNotFoundException e) {
+      e.printStackTrace();
       System.out.println(e);
     }
 
