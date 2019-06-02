@@ -4,87 +4,107 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import pl.edu.agh.mwo.model.Employee;
+import pl.edu.agh.mwo.model.Issue;
 import pl.edu.agh.mwo.model.Model;
+import pl.edu.agh.mwo.model.Project;
 
 public class XlsReader {
 	
-	public static Model model = new Model(); 
+	public Model model = new Model(); 
 	
+//	public static void main(String [] args) throws FileNotFoundException, IOException {
+//		XlsReader reader = new XlsReader();
+//		
+//		ArrayList<String> paths = new ArrayList<String>() { 
+//            { 
+//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Kowalski_Jan.xls"); 
+//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Nowak_Piotr.xls"); 
+//            } 
+//        }; 
+//        reader.getNextFiles(paths);
+//		reader.testfunc();
+//	}
 	
-	public static String getNameOfEmployee(String path){
-		String employee = path.split("\\")[-1].split("[.](?=[^.]+$)")[0];		
-		return employee;
+	public String getNameOfEmployee(String path){
+		String[] employeeName = path.split("\\\\|[.](?=[^.]+$)");
+		return employeeName[employeeName.length-2];	
 	}
 	
 	
-	public static void getNextFiles(ArrayList<String> paths) {
+	public void getNextFiles(ArrayList<String> paths) throws FileNotFoundException, IOException{
 		for (String path : paths){
 			analizeExcel(path);				
 		}
 	}
 	
-	public static void analizeExcel(String path){
-		XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream(path));
+	public void analizeExcel(String path) throws FileNotFoundException, IOException{
+		System.out.println(path);
+		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(path));
 		int numberOfSheets = wb.getNumberOfSheets();
-		
 		String employeeName = getNameOfEmployee(path);
+//		Create or edit employee
 		Employee foundEmployee = model.getEmployee(employeeName);
-		
-		
-		for (int sheet = 0; sheet < numberOfSheets; sheet++) {
-			List<List<String>> sheetContent = new ArrayList<List<String>>();
-			String projectName = wb.getSheetName(sheet);
-			Sheet getSheet = wb.getSheet(projectName);				
-			int nrow = getSheet.getLastRowNum();
+		if (foundEmployee == null) {
+			Employee employee = new Employee();
+			employee.setName(employeeName);
+			model.addEmployee(employee);
+			foundEmployee = employee;
 		}
-	}
-		
-	for (int sheet = 0; sheet < numberOfSheets; sheet++) {
-		List<List<String>> sheetContent = new ArrayList<List<String>>();
-		String projectName = wb.getSheetName(sheet);
-		Sheet getSheet = wb.getSheet(projectName);				
-		int nrow = getSheet.getLastRowNum();
-	}
-	
-	
-	
-	
-	public static Map <String, List<List<String>>> returnFileContent() throws FileNotFoundException, IOException{
-		Map <String, List<List<String>>> ContentOfFile = new HashMap<String, List<List<String>>>();
-		XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream("f1-results.xlsx"));
-		int numberOfSheets = wb.getNumberOfSheets();		
-		
-		
-		for (int sheet = 0; sheet < numberOfSheets; sheet++) {
+		for (int sheetId = 0; sheetId < numberOfSheets; sheetId++) {
 			List<List<String>> sheetContent = new ArrayList<List<String>>();
-			String sheetName = wb.getSheetName(sheet);
-			Sheet getSheet = wb.getSheet(sheetName);				
-			int nrow = getSheet.getLastRowNum();	
-			for (int row = 0;row<nrow;row++) {			
-				List<String> listOfCellsValues = new ArrayList<String>();
-				Row getRow = getSheet.getRow(row);
-				for (int col = 0; col<getRow.getLastCellNum();col++) {
-					Cell cell = getRow.getCell(col);
-					if (cell != null) {
-						listOfCellsValues.add(cell.toString());
-					} else {
-						listOfCellsValues.add("");
-					}
-				}
-				sheetContent.add(listOfCellsValues);
+			String projectName = wb.getSheetName(sheetId);
+//			Create or edit project			
+			Project foundProject = model.getProject(projectName);
+			if (foundProject == null) {
+				Project project = new Project();
+				project.setProjectName(projectName);
+				model.setProject(project);
+				foundProject = project;
 			}
-			ContentOfFile.put(sheetName, sheetContent);			
-		}
-		return ContentOfFile;
+					
+			Sheet getSheet = wb.getSheet(projectName);		
+			int nrow = getSheet.getLastRowNum();	
+			for (int row = 1;row<nrow;row++) {			
+//				Create new issue 
+				Row getRow = getSheet.getRow(row);
+				Issue issue = new Issue();
+				issue.setDate(getRow.getCell(0).toString());
+				issue.setIssueName(getRow.getCell(1).getStringCellValue());		
+				issue.setHours(getRow.getCell(2).getNumericCellValue());
+				issue.setProject(projectName);
+//				Add issue to project
+				foundProject.setIssues(issue);
+//				Add issue to employee
+				foundEmployee.addIssue(issue);
+			}
+		}	
 	}
+	
+//	public void testfunc() {
+//		System.out.println("EMPLOYEE:");
+//		for (Employee employee: model.employees) {
+//			System.out.println(employee.totalWorkingTimeInYear("2012"));
+//			for (Issue issue : employee.getIssues()) {
+//				System.out.println(employee.getName() + " => " + issue.getDate() + " | "
+//			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear() + " | " + issue.getProject());
+//			}
+//		}
+//		System.out.println("\nPROJECT:");
+//		for (Project project: model.projects) {
+//			for (Issue issue : project.getIssues()) {
+//				System.out.println(project.getName() + " => " + issue.getDate() + " | " 
+//			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear());
+//			}
+//		}
+//		
+//	}
+	
+	
 }
