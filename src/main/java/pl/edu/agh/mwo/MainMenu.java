@@ -5,16 +5,11 @@ import java.util.Scanner;
 
 import pl.edu.agh.mwo.model.Model;
 import pl.edu.agh.mwo.reports.ReportEmployeeHours;
-import pl.edu.agh.mwo.xlsPars.XlsReader;
 
 public class MainMenu {
 
 	
-	
-	String dataPattern = "\\d{4}";
-	String error = "Niepoprawny format daty";
-	
-	public static String validateInputSyntax(String pattern, String statement_error) {
+	public String validateInputSyntax(String pattern, String statement_error) {
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
 			String inputValue = scanner.next();
@@ -26,7 +21,7 @@ public class MainMenu {
 		}
 	}
 
-	public static void Run(Model model) {
+	public void Run(Model model) {
 		
 		
 		boolean isRunning = true;
@@ -35,12 +30,12 @@ public class MainMenu {
 		while (isRunning) {
 			System.out.println("\n=== Raporty ===");
 			// System.out.println(pathToData);
-			System.out.println("1. Raport roczny (ogÃ³lny)");
+			System.out.println("1. Raport roczny (ogólny)");
 			System.out.println("2. Raport - Liczba godzin wypracowanych per projekt");
-			System.out.println("3. Raport - szczegÃ³Å‚owy wykaz pracy pracownika");
-			System.out.println("4. Raport - procentowe zaangaÅ¼owanie w projekty");
-			System.out.println("5. Raport - top 10 aktywnoÅ›ci");
-			System.out.println("0 - wyjscie");
+			System.out.println("3. Raport - szczegó³owy wykaz pracy pracownika");
+			System.out.println("4. Raport - procentowe zaanga¿owanie w projekty");
+			System.out.println("5. Raport - top 10 aktywnoœci");
+			System.out.println("0. Wyjscie z aplikacji");
 
 			System.out.print(">>>");
 			int inputReportSelection = in.nextInt();
@@ -50,7 +45,9 @@ public class MainMenu {
 				do {
 					System.out.println("Raport 1");
 					System.out.print("0. Powrot do menu glownego\n9. Powrot do stanu przed bledem\nPodaj rok: ");
-					int inputYear = in.nextInt();
+					
+					int inputYear = Integer.parseInt(validateInputSyntax("\\d{4}|[0]|[9]", "Niepoprawny format daty"));
+//					int inputYear = in.nextInt();
 					if (inputYear == 0) {
 						break;
 					}
@@ -60,16 +57,17 @@ public class MainMenu {
 						System.out.println("rok: " + inputYear);
 						do {
 							System.out.println(
-									"1. WyÅ›wietl zawartoÅ›Ä‡\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
+									"1. Wyœwietl zawartoœæ\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
 											+ "\n9. Powrot do stanu przed bledem");
-							int inputChooseReportForm = in.nextInt();
+							//int inputChooseReportForm = in.nextInt();
+							int inputChooseReportForm = Integer.parseInt(validateInputSyntax("[0-2]|[9]", "Wybierz jedn¹ z dostêpnych opcji"));
 							if (inputChooseReportForm == 0) {
 								break;
 							}
 							if (inputChooseReportForm == 9) {
 								continue;
 							}
-							if (inputReportSelection == 1) {
+							if (inputChooseReportForm == 1) {
 								//System.out.println("Print on console - to be implemented");
 								ReportEmployeeHours reh = new ReportEmployeeHours(model, "" + inputYear);
 								ArrayList<ArrayList<String>> reportOne = reh.prepereDataToDiagramA(model, "" + inputYear);
@@ -88,7 +86,8 @@ public class MainMenu {
 				do {
 					System.out.println("Raport 2");
 					System.out.print("0. Powrot do menu glownego\n9. Powrot do stanu przed bledem\nPodaj rok: ");
-					int inputYear = in.nextInt();
+					//int inputYear = in.nextInt();
+					int inputYear = Integer.parseInt(validateInputSyntax("\\d{4}|[0]|[9]", "Niepoprawny format daty"));
 					if (inputYear == 0) {
 						break;
 					} 
@@ -100,7 +99,8 @@ public class MainMenu {
 							System.out.println(
 									"1. WyÅ›wietl zawartoÅ›Ä‡\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
 									+ "\n9. Powrot do stanu przed bledem");
-							int inputChooseReportForm = in.nextInt();
+							int inputChooseReportForm = Integer.parseInt(validateInputSyntax("[0-2]|[9]", "Wybierz jedn¹ z dostêpnych opcji"));
+							//int inputChooseReportForm = in.nextInt();
 							if (inputChooseReportForm == 0) {
 								break;
 							}
@@ -123,7 +123,8 @@ public class MainMenu {
 				do {
 					System.out.println("Raport 3");
 					System.out.print("0. Powrot do menu glownego\n9. Powrot do stanu przed bledem\nPodaj rok: ");
-					int inputYear = in.nextInt();
+					int inputYear = Integer.parseInt(validateInputSyntax("\\d{4}|[0]|[9]", "Niepoprawny format daty"));
+					//int inputYear = in.nextInt();
 					if (inputYear == 0) {
 						break;
 					}
@@ -144,7 +145,8 @@ public class MainMenu {
 							System.out.println(
 									"1. WyÅ›wietl zawartoÅ›Ä‡\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
 									+ "\n9. Powrot do stanu przed bledem");
-							int inputChooseReportForm = in.nextInt();
+							int inputChooseReportForm = Integer.parseInt(validateInputSyntax("[0-2]|[9]", "Wybierz jedn¹ z dostêpnych opcji"));
+							//int inputChooseReportForm = in.nextInt();
 							if (inputChooseReportForm == 0) {
 								break;
 							}
@@ -167,7 +169,8 @@ public class MainMenu {
 				do {
 					System.out.println("Raport 4");
 					System.out.print("0. Powrot do menu glownego\n9. Powrot do stanu przed bledem\nPodaj rok: ");
-					int inputYear = in.nextInt();
+					int inputYear = Integer.parseInt(validateInputSyntax("\\d{4}|[0]|[9]", "Niepoprawny format daty"));
+					//int inputYear = in.nextInt();
 					if (inputYear == 0) {
 						break;
 					}
@@ -188,7 +191,8 @@ public class MainMenu {
 							System.out.println(
 									"1. WyÅ›wietl zawartoÅ›Ä‡\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
 									+ "\n9. Powrot do stanu przed bledem");
-							int inputChooseReportForm = in.nextInt();
+							int inputChooseReportForm = Integer.parseInt(validateInputSyntax("[0-2]|[9]", "Wybierz jedn¹ z dostêpnych opcji"));
+							//int inputChooseReportForm = in.nextInt();
 							if (inputChooseReportForm == 0) {
 								break;
 							}
@@ -214,7 +218,8 @@ public class MainMenu {
 						System.out.println(
 								"1. WyÅ›wietl zawartoÅ›Ä‡\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego"
 								+ "\n9. Powrot do stanu przed bledem");
-						int inputChooseReportForm = in.nextInt();
+						int inputChooseReportForm = Integer.parseInt(validateInputSyntax("[0-2]|[9]", "Wybierz jedn¹ z dostêpnych opcji"));
+						//int inputChooseReportForm = in.nextInt();
 						if (inputChooseReportForm == 0) {
 							break;
 						}
@@ -236,7 +241,8 @@ public class MainMenu {
 			}
 
 			if (inputReportSelection == 0) {
-				isRunning = false;
+				System.exit(0);
+				//isRunning = false;
 			}
 		}
 	}

@@ -24,13 +24,12 @@ public class App {
       XlsReader xlsReader = new XlsReader(model);
       xlsReader.getNextFiles(listFilesPath.getPaths());
       xlsReader.testfunc();
-      System.out.println("Dane zostaï¿½y zaczytane");
+      System.out.println("Dane zosta³y wczytane");
     } catch (FolderNotFoundException e) {
       System.out.println(e);
     }
 
-
-    MainMenu.Run(model);
-
+    MainMenu mainMenu = new MainMenu();
+    mainMenu.Run(model);
   }
 }
