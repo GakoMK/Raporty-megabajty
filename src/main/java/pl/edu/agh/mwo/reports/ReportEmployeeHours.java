@@ -23,7 +23,7 @@ public class ReportEmployeeHours {
 		ArrayList<ArrayList<String>> resultArray = new ArrayList<ArrayList<String>>();
 		for (Employee employee : model.getEmployees()) {
 			System.out.println();
-			ArrayList<String> x = new ArrayList<>(Arrays.asList(employee.getName(), String.valueOf(employee.totalWorkingTime())));  
+			ArrayList<String> x = new ArrayList<>(Arrays.asList(employee.getName(), String.valueOf(employee.totalWorkingTimeInYear(year))));  
 			resultArray.add(x);
 		}
 		return resultArray;
