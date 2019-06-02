@@ -22,6 +22,7 @@ public class ReportEmployeeHours {
 	public ArrayList<ArrayList<String>>  transformIntoArray(Model model, String year) {
 		ArrayList<ArrayList<String>> resultArray = new ArrayList<ArrayList<String>>();
 		for (Employee employee : model.getEmployees()) {
+			System.out.println();
 			List<String> x = new ArrayList<>(Arrays.asList(employee.getName(), String.valueOf(employee.totalWorkingTimeInYear(year))));  
 		}
 		return resultArray;

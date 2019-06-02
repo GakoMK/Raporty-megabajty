@@ -1,5 +1,6 @@
 package pl.edu.agh.mwo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import pl.edu.agh.mwo.model.Model;
@@ -69,9 +70,10 @@ public class MainMenu {
 								continue;
 							}
 							if (inputReportSelection == 1) {
-								System.out.println("Print on console - to be implemented");
-								ReportEmployeeHours reh = new ReportEmployeeHours();
-								reh.printConsole(model, inputYear);
+								//System.out.println("Print on console - to be implemented");
+								ReportEmployeeHours reh = new ReportEmployeeHours(model, "" + inputYear);
+								ArrayList<ArrayList<String>> reportOne = reh.transformIntoArray(model, "" + inputYear);
+								reh.printConsole(reportOne);
 								break;
 							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");

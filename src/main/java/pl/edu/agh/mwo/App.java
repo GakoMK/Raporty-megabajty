@@ -17,12 +17,13 @@ public class App {
 	String pathToData = args[0];
     // do testów
     try {
-      String inputPath = "C:\\MWOLabLast\\Raporty-megabajty\\dummyData";
+      String inputPath = "C:\\Users\\student39\\Desktop\\Raporty-megabajty\\dummyData";
       ListFiles listFilesPath = new ListFiles();
       listFilesPath.listAllFiles(inputPath);
       System.out.println("Katalog zostal zeskanowany");
-      XlsReader xlsReader = new XlsReader();
+      XlsReader xlsReader = new XlsReader(model);
       xlsReader.getNextFiles(listFilesPath.getPaths());
+      xlsReader.testfunc();
       System.out.println("Dane zosta�y zaczytane");
     } catch (FolderNotFoundException e) {
       System.out.println(e);
