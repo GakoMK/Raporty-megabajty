@@ -25,7 +25,7 @@ Oprogramowanie mozna pobrac bezposrednio z githuba przy uzyciu linku https://git
 
 
 Uwaga w każdym momencie, użytkownik ma możliwość wrócenia do kroku poprzedniego lub wrócenia do panelu głównego (pkt4)
-W momencie gdy pomimo zatwierdzenia dalej czynności należy wrócić do panelu głównego i spróbować od nowa. 
+W momencie gdy pomimo zatwierdzenia danej czynności, czynność się nie wykonuje,  należy wrócić do panelu głównego i spróbować od nowa. 
 
 ## Format Pliku wymagany przez Twórców oprogramowania. 
 
