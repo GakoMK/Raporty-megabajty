@@ -6,8 +6,6 @@ import pl.edu.agh.mwo.model.Employee;
 import pl.edu.agh.mwo.model.Issue;
 import pl.edu.agh.mwo.model.Model;
 
-import java.util.ArrayList;
-
 public class EmployeeTest {
 
     @Test

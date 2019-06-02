@@ -6,7 +6,7 @@ public class Project {
     private String projectName;
     private ArrayList<Issue> issues = new ArrayList<Issue>();
 
-    public String getProjectName() {
+    public String getName() {
         return projectName;
     }
 
@@ -18,7 +18,8 @@ public class Project {
         return issues;
     }
 
-    public void setIssues(ArrayList<Issue> issues) {
-        this.issues = issues;
+    public void setIssues(Issue issue) {
+        this.issues.add(issue);
     }
+    
 }

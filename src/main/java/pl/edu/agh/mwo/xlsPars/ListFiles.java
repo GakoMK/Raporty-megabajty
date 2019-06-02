@@ -15,21 +15,40 @@ public class ListFiles {
         paths.add(path);
     }
 
-    public void listAllFiles(String path) {
-        ArrayList<String> listFiles = new ArrayList<String>();
-        File fold = new File(path);
-        File[] listOfFiles = fold.listFiles();
+    public void listAllFiles(String path) throws FolderNotFoundException{
 
-        assert listOfFiles != null;
-        for (File fileEntry : listOfFiles) {
-            if (fileEntry.isDirectory()) {
-                listAllFiles(fileEntry.getPath());
-            } else {
-                System.out.println(fileEntry.getAbsolutePath());
-                String pathToSave = fileEntry.getAbsolutePath();
-                addPathToPaths(pathToSave);
-                listFiles.add(fileEntry.getAbsolutePath());
+        try {
+            ArrayList<String> listFiles = new ArrayList<String>();
+            File fold = new File(path);
+            File[] listOfFiles = fold.listFiles();
+
+            assert listOfFiles != null;
+            for (File fileEntry : listOfFiles) {
+                if (fileEntry.isDirectory()) {
+                    listAllFiles(fileEntry.getPath());
+                } else {
+                    
+                    if (fileEntry.getName().endsWith(".xls")){
+                        // System.out.println(fileEntry.getAbsolutePath());
+                        String pathToSave = fileEntry.getAbsolutePath();
+                        addPathToPaths(pathToSave);
+                        listFiles.add(fileEntry.getAbsolutePath());
+                    }
+    
+    
+                }
             }
+
+        } catch (Exception e) {
+            throw new FolderNotFoundException("Folder not found.");
         }
     }
+
+
+    public class FolderNotFoundException extends Exception {
+        public FolderNotFoundException(String message) {
+            super(message);
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-package java.pl.edu.agh.mwo.test;
+package pl.edu.agh.mwo.test;
 
 import org.junit.Assert;
 import org.junit.Test;
