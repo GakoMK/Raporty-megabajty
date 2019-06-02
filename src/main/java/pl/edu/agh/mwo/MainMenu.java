@@ -3,8 +3,24 @@ package pl.edu.agh.mwo;
 import java.util.Scanner;
 
 public class MainMenu {
+	
+//	String dataPattern = "\\d{4}";
+//	
+//	public static String validateInputSyntax(String pattern, String statement_error) {
+//		Scanner scanner = new Scanner(System.in);
+//		while (true) {
+//			String inputValue = scanner.next();
+//			if (inputValue.matches(pattern)) {
+//				return inputValue;
+//			} else {
+//				System.out.println(statement_error);
+//			}
+//		}
+//	}
 
 	public static void Run() {
+		
+		
 		boolean isRunning = true;
 		Scanner in = new Scanner(System.in);
 
