@@ -28,11 +28,10 @@ public class App {
 
       System.out.println("Dane zosta�y zaczytane");
     } catch (Exception e) {
-      e.printStackTrace();
+      e.printStackTrace(); }
 
     MainMenu mainMenu = new MainMenu();
     mainMenu.Run(model);
 
-    }
   }
 }
