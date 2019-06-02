@@ -1,24 +1,41 @@
 package pl.edu.agh.mwo.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
-    private String name;
-    private ArrayList issues = new ArrayList<Issue>();
+    private String fullName;
+    private List<Issue> issues = new ArrayList<Issue>();
 
     public String getName() {
-        return name;
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public ArrayList getIssues() {
+    public List<Issue> getIssues() {
         return issues;
     }
 
-    public void setIssues(ArrayList issues) {
+    public void setIssues() {
         this.issues = issues;
     }
+
+    public void addIssue(Issue issue) {
+        this.issues.add(issue);
+    }
+    
+    public double totalWorkingTime() {
+    	return issues.stream().mapToDouble(x -> x.getHours()).sum();
+    }
+    
+  public double totalWorkingTimeInYear(String year) {
+		return issues.stream()
+				.filter(x -> x.getYear().equals(year))
+				.mapToDouble(x -> x.getHours())
+				.sum();
+	}
+    
 }
