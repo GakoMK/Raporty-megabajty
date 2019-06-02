@@ -53,12 +53,12 @@ public class ReportEmployeeHours {
 		HashMap<String, HashMap<String, String>> data = prepereMapToDiagramC(employeeFullName);
 		ArrayList<ArrayList<String>> resultList = new ArrayList<ArrayList<String>>();
 		
-		for (Map.Entry<String, Object> entry : data.entrySet()) {
-			ArrayList<String> resultList2 = new ArrayList<String>();
-			for(String value2 : value.values()) {
-		    	resultList2.add(e)
-		    }
-		}
+//		for (Map.Entry<String, Object> entry : data.entrySet()) {
+//			ArrayList<String> resultList2 = new ArrayList<String>();
+//			for(String value2 : value.values()) {
+//		    	resultList2.add(e);
+//		    }
+//		}
 	
 		
 		
