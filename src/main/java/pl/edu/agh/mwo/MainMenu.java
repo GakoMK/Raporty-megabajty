@@ -19,131 +19,138 @@ public class MainMenu {
 			System.out.println("0 - wyjscie");
 
 			System.out.print(">>>");
-			int input = in.nextInt();
+			int inputReportSelection = in.nextInt();
 
-			switch (input) {
+			switch (inputReportSelection) {
 			case 1:
 				do {
 					System.out.println("Raport 1");
-					System.out.print("Podaj rok: ");
-					input = in.nextInt();
-					if (input == 0) {
+					System.out.print("0. Powrot do menu glownego\nPodaj rok: ");
+					int inputYear = in.nextInt();
+					if (inputYear == 0) {
 						continue;
 					} else {
-						System.out.println("rok: " + input);
+						System.out.println("rok: " + inputYear);
 						do {
-							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
-							input = in.nextInt();
-							if (input == 0) {
+							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego");
+							int inputChooseReportForm = in.nextInt();
+							if (inputChooseReportForm == 0) {
 								break;
 							}
-							if (input == 1) {
+							if (inputReportSelection == 1) {
 								System.out.println("Print on console - to be implemented");
-							} else if (input == 2) {
+							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");
 							}
-						} while (input == 0);
+						} while (inputReportSelection == 0);
 					}
-				} while (input == 0);
+				} while (inputReportSelection == 0);
 				break;
 			case 2:
 				do {
 					System.out.println("Raport 2");
-					System.out.print("Podaj rok: ");
-					input = in.nextInt();
-					if (input == 0) {
+					System.out.print("0. Powrot do menu glownego\nPodaj rok: ");
+					int inputYear = in.nextInt();
+					if (inputYear == 0) {
 						continue;
 					} else {
-						System.out.println("rok: " + input);
+						System.out.println("rok: " + inputYear);
 						do {
-							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
-							input = in.nextInt();
-							if (input == 0) {
+							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego");
+							int inputChooseReportForm = in.nextInt();
+							if (inputChooseReportForm == 0) {
 								continue;
 							}
-							if (input == 1) {
+							if (inputChooseReportForm == 1) {
 								System.out.println("Print on console - to be implemented");
-							} else if (input == 2) {
+							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");
 							}
-						} while (input == 0);
+						} while (inputReportSelection == 0);
 					}
-				} while (input == 0);
+				} while (inputReportSelection == 0);
 				break;
 			case 3:
 				do {
 					System.out.println("Raport 3");
-					System.out.print("Podaj rok: ");
-					input = in.nextInt();
-					System.out.println("Podaj nazwisko");
-					String employeeName = in.next();
-					if (input == 0 || employeeName == null) {
+					System.out.print("0. Powrot do menu glownego\nPodaj rok: ");
+					int inputYear = in.nextInt();
+					if(inputYear == 0) {
+						continue;
+					}
+					System.out.println("Podaj nazwisko: ");
+					String inputEmployeeName = in.next();
+					if (inputEmployeeName == null) {
 						continue;
 					} else {
-						System.out.println("rok: " + input);
-						System.out.println("nazwisko: " + employeeName);
+						System.out.println("rok: " + inputYear);
+						System.out.println("nazwisko: " + inputEmployeeName);
 						do {
-							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
-							input = in.nextInt();
-							if (input == 0) {
+							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego");
+							int inputChooseReportForm = in.nextInt();
+							if (inputChooseReportForm == 0) {
 								continue;
 							}
-							if (input == 1) {
+							if (inputChooseReportForm == 1) {
 								System.out.println("Print on console - to be implemented");
-							} else if (input == 2) {
+							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");
 							}
-						} while (input == 0);
+						} while (inputReportSelection == 0);
 					}
-				} while (input == 0);
+				} while (inputReportSelection == 0);
 				break;
 			case 4:
 				do {
 					System.out.println("Raport 4");
-					System.out.print("Podaj rok: ");
-					input = in.nextInt();
-					System.out.println("Podaj nazwisko");
-					String employeeName = in.next();
-					if (input == 0 || employeeName == null) {
+					System.out.print("0. Powrot do menu glownego\nPodaj rok: ");
+					int inputYear = in.nextInt();
+					if (inputYear == 0) {
+						continue;
+					}
+					System.out.println("Podaj nazwisko: ");
+					String inputEmployeeName = in.next();
+					if (inputEmployeeName == null) {
 						continue;
 					} else {
-						System.out.println("rok: " + input);
+						System.out.println("rok: " + inputYear);
+						System.out.println("nazwisko: " + inputEmployeeName);
 						do {
-							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
-							input = in.nextInt();
-							if (input == 0) {
+							System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego");
+							int inputChooseReportForm = in.nextInt();
+							if (inputChooseReportForm == 0) {
 								continue;
 							}
-							if (input == 1) {
+							if (inputChooseReportForm == 1) {
 								System.out.println("Print on console - to be implemented");
-							} else if (input == 2) {
+							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");
 							}
-						} while (input == 0);
+						} while (inputReportSelection == 0);
 					}
-				} while (input == 0);
+				} while (inputReportSelection == 0);
 				break;
 			case 5:
 				do {
 					System.out.println("Raport 5");
 					do {
-						System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela");
-						input = in.nextInt();
-						if (input == 0) {
+						System.out.println("1. Wyświetl zawartość\n2. Wyeksportuj do Excela\n0. Powrot do menu glownego");
+						int inputChooseReportForm = in.nextInt();
+						if (inputChooseReportForm == 0) {
 							continue;
 						}
-						if (input == 1) {
+						if (inputChooseReportForm == 1) {
 							System.out.println("Print on console - to be implemented");
-						} else if (input == 2) {
+						} else if (inputChooseReportForm == 2) {
 							System.out.println("Export to Excel - to be implemented");
 						}
-					} while (input == 0);
+					} while (inputReportSelection == 0);
 
-				} while (input == 0);
+				} while (inputReportSelection == 0);
 				break;
 			}
 
-			if (input == 0) {
+			if (inputReportSelection == 0) {
 				isRunning = false;
 			}
 		}
