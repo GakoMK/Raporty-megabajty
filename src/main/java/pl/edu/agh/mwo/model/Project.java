@@ -22,4 +22,11 @@ public class Project {
         this.issues.add(issue);
     }
     
+    public double totalWorkingTimeInYear(String year) {
+		return issues.stream()
+				.filter(x -> x.getYear().equals(year))
+				.mapToDouble(x -> x.getHours())
+				.sum();
+	}
+    
 }

@@ -72,7 +72,7 @@ public class MainMenu {
 							if (inputReportSelection == 1) {
 								//System.out.println("Print on console - to be implemented");
 								ReportEmployeeHours reh = new ReportEmployeeHours(model, "" + inputYear);
-								ArrayList<ArrayList<String>> reportOne = reh.transformIntoArray(model, "" + inputYear);
+								ArrayList<ArrayList<String>> reportOne = reh.prepereDataToDiagramA(model, "" + inputYear);
 								reh.printConsole(reportOne);
 								break;
 							} else if (inputChooseReportForm == 2) {

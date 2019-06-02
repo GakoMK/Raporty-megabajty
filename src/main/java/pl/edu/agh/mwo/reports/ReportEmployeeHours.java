@@ -6,6 +6,7 @@ import java.util.List;
 
 import pl.edu.agh.mwo.model.Employee;
 import pl.edu.agh.mwo.model.Model;
+import pl.edu.agh.mwo.model.Project;
 
 public class ReportEmployeeHours {
 	
@@ -16,14 +17,22 @@ public class ReportEmployeeHours {
 		this.model = model;
 		this.year = year;
 	}
-	
-	//private ArrayList<ArrayList<String>> resultArray = transformIntoArray(model, year);
 
-	public ArrayList<ArrayList<String>>  transformIntoArray(Model model, String year) {
+	public ArrayList<ArrayList<String>> prepereDataToDiagramA(Model model, String year) {
 		ArrayList<ArrayList<String>> resultArray = new ArrayList<ArrayList<String>>();
 		for (Employee employee : model.getEmployees()) {
 			System.out.println();
 			ArrayList<String> x = new ArrayList<>(Arrays.asList(employee.getName(), String.valueOf(employee.totalWorkingTimeInYear(year))));  
+			resultArray.add(x);
+		}
+		return resultArray;
+	}
+	
+	public ArrayList<ArrayList<String>>  prepereDataToDiagramB(Model model, String year) {
+		ArrayList<ArrayList<String>> resultArray = new ArrayList<ArrayList<String>>();
+		for (Project project : model.getProjects()) {
+			System.out.println();
+			ArrayList<String> x = new ArrayList<>(Arrays.asList(project.getName(), String.valueOf(project.totalWorkingTimeInYear(year))));  
 			resultArray.add(x);
 		}
 		return resultArray;

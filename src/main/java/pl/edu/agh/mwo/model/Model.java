@@ -36,6 +36,10 @@ public class Model {
 	 return this.employees;
     }
     
+    public ArrayList<Project> getProjects(){
+   	 return this.projects;
+    }
+    
 //    public 
     
     
