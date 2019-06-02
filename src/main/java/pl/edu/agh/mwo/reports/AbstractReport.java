@@ -7,6 +7,8 @@
  */
 package pl.edu.agh.mwo.reports;
 
+import java.util.ArrayList;
+
 import pl.edu.agh.mwo.model.Model;
 
 public abstract class AbstractReport {
@@ -18,16 +20,18 @@ public abstract class AbstractReport {
 		this.dataModel = model;
 	}
 	
-	public void process() {
-		//todo zaincijalizuj 
-	};
+//	public void process() {
+//		//todo zaincijalizuj 
+//	};
 	
-	public void printConsole(String[][] resultArray) {
+	public void printConsole(ArrayList<ArrayList<String>> resultArray) {
 		//dimensions of resultArray
-		for (int i = 0; i < resultArray.length; i++) {
-			for (int j = 0; i < resultArray[i].length; j++) {
-				System.out.print(resultArray[i][j]);
-			}
+		for (ArrayList<String> row: resultArray) {
+			System.out.println(row.get(0) + " | " + row.get(1));
 		}
+	}
+	
+	public void printToExcel(String[][] resultArray) {
+		
 	}
 }
