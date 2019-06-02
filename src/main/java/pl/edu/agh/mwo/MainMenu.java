@@ -2,23 +2,30 @@ package pl.edu.agh.mwo;
 
 import java.util.Scanner;
 
-public class MainMenu {
-	
-//	String dataPattern = "\\d{4}";
-//	
-//	public static String validateInputSyntax(String pattern, String statement_error) {
-//		Scanner scanner = new Scanner(System.in);
-//		while (true) {
-//			String inputValue = scanner.next();
-//			if (inputValue.matches(pattern)) {
-//				return inputValue;
-//			} else {
-//				System.out.println(statement_error);
-//			}
-//		}
-//	}
+import pl.edu.agh.mwo.model.Model;
+import pl.edu.agh.mwo.reports.ReportEmployeeHours;
+import pl.edu.agh.mwo.xlsPars.XlsReader;
 
-	public static void Run() {
+public class MainMenu {
+
+	
+	
+	String dataPattern = "\\d{4}";
+	String error = "Niepoprawny format daty";
+	
+	public static String validateInputSyntax(String pattern, String statement_error) {
+		Scanner scanner = new Scanner(System.in);
+		while (true) {
+			String inputValue = scanner.next();
+			if (inputValue.matches(pattern)) {
+				return inputValue;
+			} else {
+				System.out.println(statement_error);
+			}
+		}
+	}
+
+	public static void Run(Model model) {
 		
 		
 		boolean isRunning = true;
@@ -63,6 +70,8 @@ public class MainMenu {
 							}
 							if (inputReportSelection == 1) {
 								System.out.println("Print on console - to be implemented");
+								ReportEmployeeHours reh = new ReportEmployeeHours();
+								reh.printConsole(model, inputYear);
 								break;
 							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");
