@@ -15,13 +15,12 @@ public class ListFiles {
         paths.add(path);
     }
 
-    public void listAllFiles(String path) throws UserNotFoundException{
+    public void listAllFiles(String path) throws FolderNotFoundException{
 
         try {
             ArrayList<String> listFiles = new ArrayList<String>();
             File fold = new File(path);
             File[] listOfFiles = fold.listFiles();
-
 
             assert listOfFiles != null;
             for (File fileEntry : listOfFiles) {
@@ -41,13 +40,13 @@ public class ListFiles {
             }
 
         } catch (Exception e) {
-            throw new UserNotFoundException("Folder not found.");
+            throw new FolderNotFoundException("Folder not found.");
         }
     }
 
 
-    public class UserNotFoundException extends Exception {
-        public UserNotFoundException(String message) {
+    public class FolderNotFoundException extends Exception {
+        public FolderNotFoundException(String message) {
             super(message);
         }
     }
