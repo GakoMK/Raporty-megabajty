@@ -19,18 +19,18 @@ public class XlsReader {
 	
 	public Model model = new Model(); 
 	
-	public static void main(String [] args) throws FileNotFoundException, IOException {
-		XlsReader reader = new XlsReader();
-		
-		ArrayList<String> paths = new ArrayList<String>() { 
-            { 
-                add("C:\\GIT\\MWOlastProject\\dane\\reporter-dane\\2012\\01\\Kowalski_Jan.xls"); 
-                add("C:\\GIT\\MWOlastProject\\dane\\reporter-dane\\2012\\01\\Nowak_Piotr.xls"); 
-            } 
-        }; 
-        reader.getNextFiles(paths);
-		reader.testfunc();
-	}
+//	public static void main(String [] args) throws FileNotFoundException, IOException {
+//		XlsReader reader = new XlsReader();
+//		
+//		ArrayList<String> paths = new ArrayList<String>() { 
+//            { 
+//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Kowalski_Jan.xls"); 
+//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Nowak_Piotr.xls"); 
+//            } 
+//        }; 
+//        reader.getNextFiles(paths);
+//		reader.testfunc();
+//	}
 	
 	public String getNameOfEmployee(String path){
 		String[] employeeName = path.split("\\\\|[.](?=[^.]+$)");
@@ -45,6 +45,7 @@ public class XlsReader {
 	}
 	
 	public void analizeExcel(String path) throws FileNotFoundException, IOException{
+		System.out.println(path);
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(path));
 		int numberOfSheets = wb.getNumberOfSheets();
 		String employeeName = getNameOfEmployee(path);
@@ -86,21 +87,23 @@ public class XlsReader {
 		}	
 	}
 	
-	public void testfunc() {
-		System.out.println("EMPLOYEE:");
-		for (Employee employee: model.employees) {
-			for (Issue issue : employee.getIssues()) {
-				System.out.println(employee.getName() + " => " + issue.getDate() + " | "
-			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear() + " | " + issue.getProject());
-			}
-		}
-		System.out.println("\nPROJECT:");
-		for (Project project: model.projects) {
-			for (Issue issue : project.getIssues()) {
-				System.out.println(project.getName() + " => " + issue.getDate() + " | " 
-			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear());
-			}
-		}
+//	public void testfunc() {
+//		System.out.println("EMPLOYEE:");
+//		for (Employee employee: model.employees) {
+//			System.out.println(employee.totalWorkingTimeInYear("2012"));
+//			for (Issue issue : employee.getIssues()) {
+//				System.out.println(employee.getName() + " => " + issue.getDate() + " | "
+//			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear() + " | " + issue.getProject());
+//			}
+//		}
+//		System.out.println("\nPROJECT:");
+//		for (Project project: model.projects) {
+//			for (Issue issue : project.getIssues()) {
+//				System.out.println(project.getName() + " => " + issue.getDate() + " | " 
+//			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear());
+//			}
+//		}
+		
 	}
 	
 	
