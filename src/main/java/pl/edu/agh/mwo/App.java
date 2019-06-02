@@ -26,7 +26,7 @@ public class App {
       xlsReader.getNextFiles(listFilesPath.getPaths());
       xlsReader.testfunc();
       System.out.println("Dane zosta�y zaczytane");
-    } catch (FolderNotFoundException e) {
+    } catch (Exception e) {
       e.printStackTrace();
       System.out.println(e);
     }
