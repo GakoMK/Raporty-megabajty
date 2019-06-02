@@ -6,8 +6,7 @@
  *
  */
 package pl.edu.agh.mwo.reports;
-
-import pl.edu.agh.mwo.Model;
+import pl.edu.agh.mwo.model.*;
 
 public abstract class AbstractReport {
 	
@@ -23,9 +22,8 @@ public abstract class AbstractReport {
 	};
 	
 	public void printConsole(String[][] resultArray) {
-		//dimensions of resultArray
-		for (int i; i < resultArray.length; i++) {
-			for (int j; i < resultArray[i].length; j++) {
+		for (int i = 0; i < resultArray.length; i++) {
+			for (int j = 0; i < resultArray[i].length; j++) {
 				System.out.print(resultArray[i][j]);
 			}
 		}
