@@ -25,10 +25,15 @@ public class ListFiles {
             if (fileEntry.isDirectory()) {
                 listAllFiles(fileEntry.getPath());
             } else {
-                System.out.println(fileEntry.getAbsolutePath());
-                String pathToSave = fileEntry.getAbsolutePath();
-                addPathToPaths(pathToSave);
-                listFiles.add(fileEntry.getAbsolutePath());
+                
+                if (fileEntry.getName().endsWith(".xls")){
+                    // System.out.println(fileEntry.getAbsolutePath());
+                    String pathToSave = fileEntry.getAbsolutePath();
+                    addPathToPaths(pathToSave);
+                    listFiles.add(fileEntry.getAbsolutePath());
+                }
+
+
             }
         }
     }
