@@ -41,6 +41,7 @@ Poniższe dane definiują i opisują położenie kolumn oraz nazw nagłówków
 A1 „Data” A2 „Zadanie” A3 „Czas[h]”
  
 •	W kolumnie A powinny daty w której pracownik wykonał daną czynność Data powinna zostać zapisana według formatu **MM/DD/YYYY**
+
 •	W kolumnie C powinien zostać zapisany czas który pracownik poświęcił na wykonanie danej czynności. Czas powinien mieć format liczby.
 
 3.	Arkusze powinny być przechowywane w osobnych folderach które opisywać będą miesiąc i rok którego one dotyczą.
