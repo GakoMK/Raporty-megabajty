@@ -25,14 +25,14 @@ public class App {
       XlsReader xlsReader = new XlsReader(model);
       xlsReader.getNextFiles(listFilesPath.getPaths());
       xlsReader.testfunc();
+
       System.out.println("Dane zosta�y zaczytane");
     } catch (Exception e) {
       e.printStackTrace();
-      System.out.println(e);
+
+    MainMenu mainMenu = new MainMenu();
+    mainMenu.Run(model);
+
     }
-
-
-    MainMenu.Run(model);
-
   }
 }
