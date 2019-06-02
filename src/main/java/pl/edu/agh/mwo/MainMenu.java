@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import pl.edu.agh.mwo.model.Model;
+import pl.edu.agh.mwo.reports.ExportToXls;
 import pl.edu.agh.mwo.reports.ReportEmployeeHours;
 import pl.edu.agh.mwo.xlsPars.XlsReader;
 
@@ -31,6 +32,8 @@ public class MainMenu {
 		
 		boolean isRunning = true;
 		Scanner in = new Scanner(System.in);
+		
+		
 
 		while (isRunning) {
 			System.out.println("\n=== Raporty ===");
@@ -74,6 +77,10 @@ public class MainMenu {
 								ReportEmployeeHours reh = new ReportEmployeeHours(model, "" + inputYear);
 								ArrayList<ArrayList<String>> reportOne = reh.prepereDataToDiagramA(model, "" + inputYear);
 								reh.printConsole(reportOne);
+								
+								ExportToXls rex = new ExportToXls();
+								rex.printXls(reportOne);
+								
 								break;
 							} else if (inputChooseReportForm == 2) {
 								System.out.println("Export to Excel - to be implemented");

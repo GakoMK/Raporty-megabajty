@@ -41,9 +41,9 @@ public class ReportEmployeeHours {
 	public void printConsole(ArrayList<ArrayList<String>> resultArray) {
 		System.out.println("Test");
 		for (ArrayList<String> row: resultArray) {
-			
 			System.out.println(row.get(0) + " | " + row.get(1));
 		}
+		
 	}
 
 	
