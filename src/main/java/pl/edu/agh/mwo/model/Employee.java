@@ -18,7 +18,11 @@ public class Employee {
         return issues;
     }
 
-    public void setIssues(Issue issue) {
+    public void setIssues() {
+        this.issues = issues;
+    }
+
+    public void addIssue(Issue issue) {
         this.issues.add(issue);
     }
 }
