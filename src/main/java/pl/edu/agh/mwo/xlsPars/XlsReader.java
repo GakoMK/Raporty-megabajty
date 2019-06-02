@@ -32,7 +32,6 @@ public class XlsReader {
 	}
 	
 	public void analizeExcel(String path) throws FileNotFoundException, IOException{
-		System.out.println(path);
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(path));
 		int numberOfSheets = wb.getNumberOfSheets();
 		String employeeName = getNameOfEmployee(path);
