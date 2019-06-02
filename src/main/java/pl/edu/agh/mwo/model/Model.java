@@ -32,6 +32,10 @@ public class Model {
     	projects.add(project);
     }
     
+    public ArrayList<Employee> getEmployees(){
+	 return this.employees;
+    }
+    
 //    public 
     
     

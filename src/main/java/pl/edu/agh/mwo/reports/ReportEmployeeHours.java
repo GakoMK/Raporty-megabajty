@@ -1,10 +1,27 @@
 package pl.edu.agh.mwo.reports;
 
-public class ReportEmployeeHours{
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-	public ReportEmployeeHours() extends AbstractReport {
-		// TODO Auto-generated constructor stub
+import pl.edu.agh.mwo.model.Employee;
+import pl.edu.agh.mwo.model.Model;
+
+public class ReportEmployeeHours extends AbstractReport {
+	
+	//private String[][] resultArray;
+
+	public ReportEmployeeHours(Model model) {
+		super(model);
 	}
 	
+	public static ArrayList<ArrayList<String>>  transformIntoArray(Model model, String year) {
+		ArrayList<ArrayList<String>> resultArray = new ArrayList<ArrayList<String>>();
+		for (Employee employee : model.getEmployees()) {
+			List<String> x = new ArrayList<>(Arrays.asList(employee.getName(), String.valueOf(employee.totalWorkingTimeInYear(year))));  
+		}
+		return resultArray;
+	}
 
+	
 }

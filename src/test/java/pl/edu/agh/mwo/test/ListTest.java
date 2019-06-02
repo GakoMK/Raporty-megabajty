@@ -8,7 +8,7 @@ public class ListTest {
     String path = "D:\\Projects\\SAMPLE";
 
     @Test
-    public void listAllFilesTest() {
+    public void listAllFilesTest() throws ListFiles.FolderNotFoundException {
         ListFiles listFiles = new ListFiles();
         listFiles.listAllFiles(path);
         Assert.assertEquals(3, listFiles.getPaths().size());
