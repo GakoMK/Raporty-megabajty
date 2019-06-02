@@ -3,6 +3,7 @@ package pl.edu.agh.mwo;
 import java.io.IOException;
 
 import pl.edu.agh.mwo.xlsPars.ListFiles;
+import pl.edu.agh.mwo.xlsPars.XlsReader;
 import pl.edu.agh.mwo.xlsPars.ListFiles.FolderNotFoundException;
 
 public class App {
@@ -11,9 +12,13 @@ public class App {
 
     // do testów
     try {
-      String inputPath = "C:\\Users\\Yogi\\Documents\\JAVA\\Visual_Studio_Code\\megabajty\\Raporty-megabajtty\\dummyData";
+      String inputPath = "C:\\MWOLabLast\\Raporty-megabajty\\dummyData";
       ListFiles listFilesPath = new ListFiles();
       listFilesPath.listAllFiles(inputPath);
+  
+      XlsReader xlsReader = new XlsReader();
+      xlsReader.getNextFiles(listFilesPath.getPaths());
+      xlsReader.testfunc();
     } catch (FolderNotFoundException e) {
       // e.printStackTrace();
       System.out.println(e);

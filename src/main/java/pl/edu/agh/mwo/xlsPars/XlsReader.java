@@ -19,19 +19,6 @@ public class XlsReader {
 	
 	public Model model = new Model(); 
 	
-//	public static void main(String [] args) throws FileNotFoundException, IOException {
-//		XlsReader reader = new XlsReader();
-//		
-//		ArrayList<String> paths = new ArrayList<String>() { 
-//            { 
-//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Kowalski_Jan.xls"); 
-//                add("C:\\Users\\student32\\Downloads\\reporter-dane\\2012\\01\\Nowak_Piotr.xls"); 
-//            } 
-//        }; 
-//        reader.getNextFiles(paths);
-//		reader.testfunc();
-//	}
-	
 	public String getNameOfEmployee(String path){
 		String[] employeeName = path.split("\\\\|[.](?=[^.]+$)");
 		return employeeName[employeeName.length-2];	
@@ -45,7 +32,6 @@ public class XlsReader {
 	}
 	
 	public void analizeExcel(String path) throws FileNotFoundException, IOException{
-		System.out.println(path);
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(path));
 		int numberOfSheets = wb.getNumberOfSheets();
 		String employeeName = getNameOfEmployee(path);
@@ -68,21 +54,22 @@ public class XlsReader {
 				model.setProject(project);
 				foundProject = project;
 			}
-					
 			Sheet getSheet = wb.getSheet(projectName);		
 			int nrow = getSheet.getLastRowNum();	
 			for (int row = 1;row<nrow;row++) {			
 //				Create new issue 
 				Row getRow = getSheet.getRow(row);
-				Issue issue = new Issue();
-				issue.setDate(getRow.getCell(0).toString());
-				issue.setIssueName(getRow.getCell(1).getStringCellValue());		
-				issue.setHours(getRow.getCell(2).getNumericCellValue());
-				issue.setProject(projectName);
-//				Add issue to project
-				foundProject.setIssues(issue);
-//				Add issue to employee
-				foundEmployee.addIssue(issue);
+				if (getRow.getCell(0) != null && getRow.getCell(1) !=null && getRow.getCell(2) != null){
+					Issue issue = new Issue();
+					issue.setDate(getRow.getCell(0).toString());
+					issue.setIssueName(getRow.getCell(1).getStringCellValue());		
+					issue.setHours(getRow.getCell(2).getNumericCellValue());
+					issue.setProject(projectName);
+	//				Add issue to project
+					foundProject.setIssues(issue);
+	//				Add issue to employee
+					foundEmployee.addIssue(issue);
+				}
 			}
 		}	
 	}
