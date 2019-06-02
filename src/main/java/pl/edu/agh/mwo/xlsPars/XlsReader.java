@@ -17,7 +17,12 @@ import pl.edu.agh.mwo.model.Project;
 
 public class XlsReader {
 	
-	public Model model = new Model(); 
+	public Model model = new Model();
+	
+	public XlsReader(Model model) {
+		super();
+		this.model = model;
+	}
 	
 	public String getNameOfEmployee(String path){
 		String[] employeeName = path.split("\\\\|[.](?=[^.]+$)");
