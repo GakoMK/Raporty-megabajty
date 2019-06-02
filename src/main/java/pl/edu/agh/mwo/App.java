@@ -14,10 +14,10 @@ public class App {
 	final Model model = new Model();
 
 
-	String pathToData = args[0];
+	//String pathToData = args[0];
     // do testów
     try {
-      String inputPath = "C:\\Users\\student39\\Desktop\\Raporty-megabajty\\dummyData";
+      String inputPath = "E:\\agh\\Raporty-megabajty\\dummyData";
       ListFiles listFilesPath = new ListFiles();
       listFilesPath.listAllFiles(inputPath);
       System.out.println("Katalog zostal zeskanowany");

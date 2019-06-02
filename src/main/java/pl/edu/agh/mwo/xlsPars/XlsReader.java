@@ -85,14 +85,14 @@ public class XlsReader {
 		for (Employee employee: model.employees) {
 			System.out.println(employee.totalWorkingTimeInYear("2012"));
 			for (Issue issue : employee.getIssues()) {
-				System.out.println(employee.getName() + " => " + issue.getDate() + " | "
+				System.out.println(employee.getName() + " => " + issue.getMonth() + " | "
 			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear() + " | " + issue.getProject());
 			}
 		}
 		System.out.println("\nPROJECT:");
 		for (Project project: model.projects) {
 			for (Issue issue : project.getIssues()) {
-				System.out.println(project.getName() + " => " + issue.getDate() + " | " 
+				System.out.println(project.getName() + " => " + issue.getMonth() + " | " 
 			+ issue.getName() + " | " + issue.getHours() + " | " + issue.getYear());
 			}
 		}
