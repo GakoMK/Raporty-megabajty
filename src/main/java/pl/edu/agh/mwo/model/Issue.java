@@ -1,5 +1,8 @@
 package pl.edu.agh.mwo.model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Issue {
     private String date;
     private double hours;
@@ -23,7 +26,23 @@ public class Issue {
     }
 
     public String getYear() {
-    	return this.date.substring(7);
+    	Pattern pattern = Pattern.compile("(\\d{4})$");
+    	Matcher matcher = pattern.matcher(this.date);
+    	if (matcher.find())
+    	{
+    	    return matcher.group(1);
+    	}
+	return null;
+    }
+    
+    public String getMonth() {
+    	Pattern pattern = Pattern.compile("[\\-.](\\w{3})[\\-.]");
+    	Matcher matcher = pattern.matcher(this.date);
+    	if (matcher.find())
+    	{
+    	    return matcher.group(1);
+    	}
+	return null;
 	}
     
     public void setProject(String project) {
