@@ -8,13 +8,16 @@
 package pl.edu.agh.mwo.reports;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import pl.edu.agh.mwo.model.Employee;
 import pl.edu.agh.mwo.model.Model;
 
 public abstract class AbstractReport {
 	
 	private Model dataModel;
-	private String[][] resultArray;
+	//private String[][] resultArray;
 	
 	public AbstractReport(Model model) {
 		this.dataModel = model;
@@ -23,6 +26,10 @@ public abstract class AbstractReport {
 //	public void process() {
 //		//todo zaincijalizuj 
 //	};
+	
+	public ArrayList<ArrayList<String>>  transformIntoArray(Model model, String year) {
+		return null;
+	}
 	
 	public void printConsole(ArrayList<ArrayList<String>> resultArray) {
 		//dimensions of resultArray
