@@ -17,9 +17,9 @@ public abstract class AbstractReport {
 		this.dataModel = model;
 	}
 	
-	public void process() {
-		//todo zaincijalizuj 
-	};
+//	public void process() {
+//		//todo zaincijalizuj 
+//	};
 	
 	public void printConsole(String[][] resultArray) {
 		for (int i = 0; i < resultArray.length; i++) {
